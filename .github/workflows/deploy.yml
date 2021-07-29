@@ -32,7 +32,7 @@ jobs:
         
       # Get ID token
       - name: get ID token
-        run: aws cognito-idp initiate-auth --auth-flow 'USER_PASSWORD_AUTH' --client-id '${{ secrets.CLIENT_ID }}' --auth-parameters USERNAME='${{ secrets.GITREPO_USERNAME }}',PASSWORD='${{ secrets.GITREPO_PWD }}' --query AuthenticationResult.IdToken --output text
+        run: aws cognito-idp initiate-auth --auth-flow 'USER_PASSWORD_AUTH' --client-id '${{ secrets.CLIENT_ID }}' --auth-parameters USERNAME='${{ secrets.GITREPO_USERNAME }}',PASSWORD='${{ secrets.GITREPO_USERNAME }}' --query AuthenticationResult.IdToken --output text
         id: tokenid
       
       # Get credentials
