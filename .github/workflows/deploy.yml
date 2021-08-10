@@ -58,7 +58,7 @@ jobs:
         with:
           aws-access-key-id: ${{ steps.accessid.outputs.ACCESSID }}
           aws-secret-access-key: ${{ steps.accesskey.outputs.ACCESSKEY }}
-          aws-session-token: ${{ steps.sessiontoken.outputs.SESSIONTOKEN }}
+          #aws-session-token: ${{ steps.sessiontoken.outputs.SESSIONTOKEN }}
           aws-region: ${{ env.AWS_REGION }}
 
           
