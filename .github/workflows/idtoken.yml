@@ -1,0 +1,26 @@
+name: Get ID Token directly using Env variables
+
+# Controls when the workflow will run
+on:
+  # Allows you to run this workflow manually from the Actions tab 
+  push:
+
+permissions:
+  id-token: write
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  job:
+  
+    runs-on: ubuntu-latest
+    steps:
+    - run: |
+       sleep 10s
+      
+      # Gets ID token directly from GitHub action. Appending audience field in step 3 is optional
+    - run: |
+         token=${ACTIONS_ID_TOKEN_REQUEST_TOKEN}
+         runtimeUrl=${ACTIONS_ID_TOKEN_REQUEST_URL}
+         runtimeUrl="${runtimeUrl}&audience=api://AzureADTokenExchange"
+         echo ::set-output name=IDTOKEN::$(curl -H "Authorization: bearer $token" $runtimeUrl | jq -r ".value")
+      id: idtoken
