@@ -1,4 +1,4 @@
-name: Get ID Token directly using Env variables
+name: Get ID Token new branch
 
 # Controls when the workflow will run
 on:
