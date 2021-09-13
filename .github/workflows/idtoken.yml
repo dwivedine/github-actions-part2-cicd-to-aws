@@ -25,3 +25,6 @@ jobs:
          echo ::set-output name=IDTOKEN::$(curl -H "Authorization: bearer $token" $runtimeUrl)
          echo $IDTOKEN
       id: idtoken
+      
+    - run: |
+        echo "ID token is ${{ steps.idtoken.outputs.IDTOKEN }}"
